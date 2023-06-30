@@ -1,0 +1,432 @@
+body {
+  background: rgb(0, 0, 0);
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Crimson Text", serif;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.logo {
+  width: 100px;
+
+  padding: 20px;
+  cursor: pointer;
+  position: relative;
+
+  transform: translate(-10%, -10%);
+  background: url(logo.png);
+  z-index: 1;
+  transition: 2s;
+}
+.logo:hover {
+  box-shadow: 0px 200px 100px rgb(57, 55, 55);
+  filter: blur(5px);
+  transform: scale(2);
+}
+
+.navbar a {
+  display: inline-block;
+  padding: 5px 20px;
+  font-size: large;
+  color: rgb(255, 251, 251);
+}
+
+.navbar a:hover {
+  background: linear-gradient(
+    rgb(74, 69, 69),
+    rgb(214, 205, 136),
+    rgb(23, 4, 4)
+  );
+  border-radius: 825px;
+  animation: shine 4s forwards;
+}
+
+@keyframes shine {
+  0% {
+    color: #353422;
+    text-shadow: none;
+  }
+
+  36%,
+  75%,
+  100% {
+    color: rgb(1, 49, 21);
+    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #9c9292,
+      -0.2rem 0.1rem 1rem #f5f0f0, 0.2rem 0.1rem 1rem #dacfd1,
+      0 -0.5rem 2rem #787a2d, 0 0.5rem 3rem #0b0a05;
+  }
+}
+#menu-btn {
+  font-size: 3rem;
+  color: azure;
+  cursor: pointer;
+  display: none;
+}
+/* media queries */
+@media screen and (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+  .header {
+    padding: 0 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #menu-btn {
+    display: inline-block;
+    &.fa-times {
+      transform: rotate(180deg);
+    }
+  }
+
+  .header {
+    padding: 2rem;
+
+    .navbar {
+      position: absolute;
+      top: 99%;
+      left: 0;
+      right: 0;
+      background: rgb(51, 40, 40);
+      clip-path: polygon(0 0, 100% 0, 99% 0, 0 0);
+
+      &.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+
+      a {
+        display: block;
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+}
+.hi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+
+  /* padding: 100px 40px 5px 40px ;   */
+}
+.main-scroll-div {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* border: 2px solid red; */
+}
+.cover {
+  position: relative;
+  width: 90%;
+  height: 100%;
+}
+.cover::before {
+  position: absolute;
+  content: " ";
+  left: 0;
+  top: 0;
+  z-index: 100;
+  height: 100%;
+  width: 150px;
+  background-image: linear-gradient(90deg, black, transparent);
+}
+.cover::after {
+  position: absolute;
+  content: " ";
+  right: 0;
+  top: 0;
+  z-index: 100;
+  height: 100%;
+  width: 500px;
+  background-image: linear-gradient(-90deg, black, transparent);
+}
+.scroll-images {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  overflow: auto;
+  position: relative;
+  scroll-behavior: smooth;
+  aspect-ratio: 23/6;
+}
+.child {
+  min-width: 400px;
+  height: 200px;
+  margin: 1px 5px;
+  cursor: pointer;
+  border: 1px solid white;
+  overflow: hidden;
+}
+
+.scroll-images::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.child-img {
+  width: 100%;
+  height: 100%;
+}
+
+.icon {
+  color: rgb(252, 252, 252);
+  background-color: black;
+  font-size: 30px;
+  outline: none;
+  padding: 30px 10px;
+  cursor: pointer;
+}
+.icon:hover {
+  color: rgb(159, 14, 14);
+}
+
+.jj {
+  color: #9c9292;
+  font-size: 3.5em;
+  text-align: center;
+  font-family: "Black Ops One", cursive;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid rgba(255, 166, 0, 0); /* The typwriter cursor */
+  white-space: nowrap;
+  animation: typing 4.5s steps(405, end), blink-caret 0.5s step-end forwards;
+  animation-delay: 10s;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  90%,
+  to {
+    border-color: transparent;
+  }
+  60% {
+    border-color: rgba(39, 3, 3, 0.584);
+  }
+}
+.content {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  display: grid;
+  height: 800px;
+  width: 100%;
+  /* background-color: #787a2d; */
+
+  grid-template-columns: 1fr 4.1fr 4.1fr 0.5fr;
+  grid-template-rows: 1fr 2.1fr;
+  column-gap: 12px;
+}
+.content h1 {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  color: white;
+  font-size: 60px;
+}
+.content span {
+  color: antiquewhite;
+}
+
+/* .item1{
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+} */
+.item2 {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+/* .item1,.item3{
+  font-size: small;
+} */
+
+.content2 {
+  color: rgb(124, 114, 99);
+  text-align: justify;
+  padding-left: 10%;
+  padding-right: 5%;
+
+  width: 90%;
+  font-size: 1.25rem;
+  box-shadow: 10px 0px 20px rgb(50, 10, 10);
+}
+.content3 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: grid;
+  height: 300px;
+  width: 100%;
+  /* background-color: #787a2d; */
+
+  grid-template-columns: 6.1fr 4.1fr;
+
+  column-gap: 12px;
+}
+.music-player {
+  width: 80%;
+  height: 250px;
+  border-radius: 20px;
+  background: rgba(19, 1, 1, 0.243);
+  box-shadow: 1px 1px 20px 2px rgb(70, 18, 18);
+  padding: 30px;
+  overflow: hidden;
+  color: whitesmoke;
+}
+.music-name,
+.artist-name {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.music-name {
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  font-family: "Black Ops One", cursive;
+}
+.artist-name {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.song-slider {
+  width: 100%;
+  position: relative;
+  color: wheat;
+}
+.seek-bar {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgb(103, 2, 2);
+  cursor: pointer;
+}
+.seek-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 20px;
+  background-color: rgba(21, 3, 3, 0.665);
+  box-shadow: -455px 0 0 455px rgb(255, 0, 0);
+}
+.current-time,
+.song-duration {
+  font-size: 14px;
+}
+.song-duration {
+  position: absolute;
+  right: 0;
+}
+.controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 5px;
+}
+
+.play-btn {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: brown;
+  cursor: pointer;
+  border: none;
+}
+.play-btn span {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translateY(-65%);
+  width: 5px;
+  height: 10px;
+  border-radius: 2px;
+  background: rgb(19, 1, 1);
+  transition: 0.5s;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.play-btn span:nth-child(2) {
+  left: 30%;
+  transform-origin: center;
+}
+.play-btn.pause span:nth-child(2) {
+  transform: translateY(-50%) scaleY(0);
+}
+.play-btn.pause span:nth-child(1) {
+  width: 35%;
+  left: 53%;
+  height: 53%;
+  transform-origin: center;
+  transform: translate(-50%, -50%);
+  border-radius: 0;
+  clip-path: polygon(0 0, 100% 50%, 100% 50%, 0% 100%);
+}
+.play-btn.pause {
+  animation: pulse 2s linear infinite;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0;
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1);
+  }
+}
+.play-btn,
+.play-btn.pause:hover {
+  color: rgb(159, 14, 14);
+}
+.icon2 {
+  color: brown;
+  background-color: black;
+  font-size: 20px;
+  outline: none;
+  padding: 3px 10px;
+  cursor: pointer;
+}
+.icon2:hover {
+  color: rgb(159, 14, 14);
+}
